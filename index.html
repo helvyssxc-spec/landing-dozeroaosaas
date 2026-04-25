@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do Zero ao SaaS — Do zero ao primeiro SaaS faturando em 30 dias</title>
+<meta name="description" content="Método prático para construir, publicar e vender seu primeiro SaaS em 30 dias orquestrando 5 ferramentas de IA. Sem saber programar.">
+
+<!-- OG / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Do Zero ao SaaS — Do zero ao primeiro SaaS faturando em 30 dias">
+<meta property="og:description" content="Método prático: 5 ferramentas de IA, 7 fases, 1 produto em produção. Sem saber programar.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%23E8B84A'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='72' font-weight='600' text-anchor='middle' fill='%230B0B0F' font-style='italic'%3EO%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B0B0F;
+    --bg-elev: #131318;
+    --bg-hi: #1A1A22;
+    --ink: #F5F1E8;
+    --ink-mute: #8A8577;
+    --ink-fade: #5A5850;
+    --line: #22222C;
+    --accent: #E8B84A;
+    --accent-deep: #5C4A1F;
+    --accent-soft: #2D2518;
+    --danger: #E86B4A;
+    --success: #7DA663;
+    --claude: #D97757;
+    --gemini: #4A90E2;
+    --gpt: #10A37F;
+    --lovable: #FF6B9D;
+    --manus: #3FBFA6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(232, 184, 74, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(74, 144, 226, 0.04) 0%, transparent 35%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  /* HEADER */
+  header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11, 11, 15, 0.9);
+    backdrop-filter: blur(16px);
+  }
+  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--bg);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    font-style: italic;
+  }
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .brand-name em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+  .cta-header {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    transition: all 0.2s;
+  }
+  .cta-header:hover { background: #F2C560; transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    padding: 100px 0 80px;
+    position: relative;
+  }
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 7vw, 82px);
+    line-height: 0.98;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    margin-bottom: 36px;
+    max-width: 960px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  h1 s {
+    text-decoration: line-through;
+    text-decoration-color: var(--danger);
+    text-decoration-thickness: 3px;
+    color: var(--ink-mute);
+  }
+
+  .hero-sub {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--ink-mute);
+    max-width: 720px;
+    line-height: 1.5;
+    margin-bottom: 48px;
+  }
+  .hero-sub strong { color: var(--ink); font-weight: 500; }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 18px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: #F2C560; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232, 184, 74, 0.25); }
+  .btn-primary::after { content: '→'; font-size: 18px; }
+
+  .btn-secondary {
+    color: var(--ink-mute);
+    padding: 18px 28px;
+    text-decoration: none;
+    font-size: 15px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--ink-fade); color: var(--ink); }
+
+  .hero-microcopy {
+    display: flex;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-fade);
+    flex-wrap: wrap;
+  }
+  .hero-microcopy span { display: flex; align-items: center; gap: 8px; }
+  .hero-microcopy span::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--success);
+    border-radius: 50%;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-top: 60px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--bg-elev);
+    padding: 28px 20px;
+  }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .stat-lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 100px 0;
+    border-top: 1px solid var(--line);
+  }
+  .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 24px;
+  }
+  h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-lead {
+    font-size: 19px;
+    color: var(--ink-mute);
+    max-width: 720px;
+    line-height: 1.55;
+    margin-bottom: 56px;
+  }
+
+  /* PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .problem-card {
+    background: var(--bg-elev);
+    padding: 36px 30px;
+  }
+  .problem-num {
+    font-family: 'Fraunces', serif;
+    font-size: 52px;
+    font-style: italic;
+    color: var(--danger);
+    font-weight: 300;
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+  .problem-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .problem-text {
+    color: var(--ink-mute);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* SOLUTION — The Method */
+  .method-intro {
+    text-align: center;
+    padding: 60px 32px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 60px;
+  }
+  .method-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    margin-bottom: 20px;
+  }
+  .method-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .method-headline em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .tools-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .tool-cell {
+    background: var(--bg-elev);
+    padding: 28px 20px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .tool-cell:hover { background: var(--bg-hi); }
+  .tool-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+  }
+  .tool-cell[data-t=claude] .tool-dot { background: var(--claude); }
+  .tool-cell[data-t=gemini] .tool-dot { background: var(--gemini); }
+  .tool-cell[data-t=gpt] .tool-dot { background: var(--gpt); }
+  .tool-cell[data-t=lovable] .tool-dot { background: var(--lovable); }
+  .tool-cell[data-t=manus] .tool-dot { background: var(--manus); }
+  .tool-nm {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .tool-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+  .tool-dsc {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+
+  /* TRILHA */
+  .trail-wrap { margin-top: 48px; }
+  .trail-phase {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .trail-phase:last-child { border-bottom: none; }
+  .trail-num {
+    font-family: 'Fraunces', serif;
+    font-size: 52px;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+    line-height: 0.9;
+  }
+  .trail-info { }
+  .trail-name {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .trail-goal {
+    color: var(--ink-mute);
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 600px;
+  }
+  .trail-days {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-fade);
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* PULO DO GATO */
+  .pulo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--accent-deep);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .pulo-card {
+    background: var(--bg-elev);
+    padding: 40px 32px;
+    position: relative;
+  }
+  .pulo-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pulo-label::before {
+    content: '◆';
+    color: var(--accent);
+  }
+  .pulo-title {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .pulo-title em { font-style: italic; color: var(--accent); }
+  .pulo-text {
+    color: var(--ink-mute);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .pulo-num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    font-style: italic;
+  }
+  .pulo-num-lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* WHAT YOU GET */
+  .delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .delivery-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    padding: 32px 28px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .delivery-card:hover { border-color: var(--accent-deep); }
+  .delivery-icon {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .delivery-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .delivery-text {
+    color: var(--ink-mute);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .delivery-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* PRA QUEM É */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .audience-col {
+    padding: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+  .audience-col.yes {
+    background: linear-gradient(135deg, rgba(125, 166, 99, 0.05), transparent 70%);
+    border-color: rgba(125, 166, 99, 0.3);
+  }
+  .audience-col.no {
+    background: linear-gradient(135deg, rgba(232, 107, 74, 0.05), transparent 70%);
+    border-color: rgba(232, 107, 74, 0.3);
+  }
+  .audience-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+  .audience-col.yes .audience-head { color: var(--success); }
+  .audience-col.no .audience-head { color: var(--danger); }
+  .audience-list { list-style: none; }
+  .audience-list li {
+    padding: 12px 0 12px 32px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    border-bottom: 1px dashed var(--line);
+  }
+  .audience-list li:last-child { border-bottom: none; }
+  .audience-col.yes .audience-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+  .audience-col.no .audience-list li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--danger);
+    font-weight: 700;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+  }
+  .faq-q {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: -0.01em;
+    padding-right: 20px;
+  }
+  .faq-q::after {
+    content: '+';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: var(--accent);
+    transition: transform 0.2s;
+    width: 28px;
+    text-align: center;
+  }
+  .faq-item.open .faq-q::after { content: '−'; }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    color: var(--ink-mute);
+    font-size: 15px;
+    line-height: 1.65;
+    transition: max-height 0.3s ease-out, margin 0.3s ease-out;
+  }
+  .faq-item.open .faq-a { max-height: 500px; margin-top: 16px; }
+
+  /* PRICING / OFFER */
+  .offer-box {
+    background: var(--bg-elev);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    margin-top: 48px;
+  }
+  .offer-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg);
+    padding: 6px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    border-radius: 3px;
+  }
+  .offer-title {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .offer-title em { font-style: italic; color: var(--accent); }
+  .offer-sub {
+    color: var(--ink-mute);
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+  .offer-includes {
+    text-align: left;
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+  .offer-includes li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    font-size: 15px;
+    list-style: none;
+    border-bottom: 1px dashed var(--line);
+  }
+  .offer-includes li:last-child { border-bottom: none; }
+  .offer-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 14px;
+    margin: 36px 0 24px;
+  }
+  .price-old {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: var(--ink-fade);
+    text-decoration: line-through;
+  }
+  .price-new {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .price-pix {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 28px;
+  }
+  .price-pix strong { color: var(--accent); }
+
+  .guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--success);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 8px 14px;
+    border: 1px solid rgba(125, 166, 99, 0.3);
+    border-radius: 3px;
+    margin-top: 24px;
+  }
+  .guarantee::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    padding: 120px 0 140px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    background: radial-gradient(circle at 50% 100%, rgba(232, 184, 74, 0.08) 0%, transparent 60%);
+  }
+  .final-cta h2 { margin-bottom: 20px; }
+  .final-cta-sub {
+    color: var(--ink-mute);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 56px 0 64px;
+    color: var(--ink-fade);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--line);
+  }
+  .foot-row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .foot-links { display: flex; gap: 24px; }
+  .foot-links a {
+    color: var(--ink-fade);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .foot-links a:hover { color: var(--ink); }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .wrap, .narrow { padding: 0 20px; }
+    .hero { padding: 64px 0 48px; }
+    .section { padding: 64px 0; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .problem-grid { grid-template-columns: 1fr; }
+    .tools-row { grid-template-columns: repeat(2, 1fr); }
+    .pulo-grid { grid-template-columns: 1fr; }
+    .delivery-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .trail-phase { grid-template-columns: 48px 1fr; }
+    .trail-num { font-size: 36px; }
+    .trail-days { grid-column: 2; width: fit-content; }
+    .price-new { font-size: 56px; }
+    .offer-box { padding: 36px 24px; }
+    .final-cta { padding: 80px 0 100px; }
+    h1 { font-size: 42px; }
+  }
+
+  @media (max-width: 520px) {
+    .tools-row { grid-template-columns: 1fr; }
+    .btn-primary { padding: 16px 28px; font-size: 15px; width: 100%; justify-content: center; }
+    .btn-secondary { width: 100%; text-align: center; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.6s ease-out both; }
+
+  /* SMOOTH SCROLL OFFSET (sticky header) */
+  section[id] { scroll-margin-top: 100px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="brand">
+      <div class="logo">O</div>
+      <span class="brand-name">Do Zero ao SaaS</span>
+    </div>
+    <a href="#oferta" class="cta-header">Quero acessar →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-tag">Do Zero ao SaaS · 30 dias · Sem pagar Lovable</div>
+    <h1 class="fade-in">
+      Do <em>zero</em> ao seu primeiro<br>
+      <em>SaaS faturando</em> em 30 dias.<br>
+      <s>Sem saber programar.</s>
+    </h1>
+    <p class="hero-sub">
+      Pare de queimar <strong>R$300/mês em Lovable</strong> que trava e estoura crédito. Você não precisa da ferramenta cara — precisa do <strong>método</strong> que orquestra Claude + Cursor + Gemini (quase de graça) pra construir SaaS de verdade.
+    </p>
+    <!-- LEAD CAPTURE pré-lançamento (CTA principal) -->
+    <form id="leadForm" class="lead-form" onsubmit="return submitLead(event)">
+      <input type="email" id="leadEmail" name="email" placeholder="seu@email.com" required>
+      <button type="submit" class="btn-primary" id="leadBtn">Quero o Pulo do Gato grátis →</button>
+      <div class="lead-msg" id="leadMsg"></div>
+    </form>
+    <div class="hero-microcopy">
+      <span>Avise-me no lançamento</span>
+      <span>+ 1 capítulo grátis agora</span>
+      <span>Sem spam</span>
+    </div>
+
+    <style>
+      .lead-form { display: flex; gap: 10px; flex-wrap: wrap; max-width: 540px; margin: 28px 0 16px; }
+      .lead-form input { flex: 1; min-width: 220px; padding: 16px 18px; font-size: 15px; border: 1px solid var(--border, #d4d4d8); border-radius: 10px; font-family: inherit; }
+      .lead-form input:focus { outline: 2px solid var(--accent, #6b8cff); outline-offset: 1px; }
+      .lead-form .btn-primary { padding: 16px 24px; font-size: 15px; cursor: pointer; }
+      .lead-form .btn-primary:disabled { opacity: 0.5; cursor: wait; }
+      .lead-msg { width: 100%; font-size: 14px; min-height: 18px; }
+      .lead-msg.ok { color: #16a34a; }
+      .lead-msg.err { color: #dc2626; }
+    </style>
+    <script>
+      async function submitLead(e) {
+        e.preventDefault();
+        const btn = document.getElementById('leadBtn');
+        const msg = document.getElementById('leadMsg');
+        const email = document.getElementById('leadEmail').value.trim();
+        if (!email) return false;
+        btn.disabled = true;
+        btn.textContent = 'enviando...';
+        msg.className = 'lead-msg';
+        msg.textContent = '';
+        try {
+          const params = new URLSearchParams(location.search);
+          const r = await fetch('https://chat.dozeroaosaas.com.br/api/lead-capture', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              email,
+              source: 'landing-prelaunch',
+              utm_source: params.get('utm_source') || null,
+              utm_medium: params.get('utm_medium') || null,
+              utm_campaign: params.get('utm_campaign') || null,
+            }),
+          });
+          const j = await r.json();
+          if (!r.ok) throw new Error(j.error || 'erro_desconhecido');
+          msg.className = 'lead-msg ok';
+          msg.textContent = j.is_new
+            ? '✅ Pronto. Cheque seu email — chega em segundos (olha o spam se não vier).'
+            : '✅ Você já estava na lista. Reenviei o material agora.';
+          btn.textContent = 'Enviado ✓';
+        } catch (err) {
+          msg.className = 'lead-msg err';
+          msg.textContent = '⚠ Algo deu errado: ' + (err.message || 'tente de novo em alguns minutos');
+          btn.disabled = false;
+          btn.textContent = 'Quero o Pulo do Gato grátis →';
+        }
+        return false;
+      }
+    </script>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-num">30</div>
+        <div class="stat-lbl">Dias pra estar no ar</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">05</div>
+        <div class="stat-lbl">Ferramentas orquestradas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">80%</div>
+        <div class="stat-lbl">Economia de créditos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100</div>
+        <div class="stat-lbl">Prompts prontos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section" id="problema">
+  <div class="wrap">
+    <div class="section-tag">O problema</div>
+    <h2>Você não está <em>sozinho</em> no caos.</h2>
+    <p class="section-lead">
+      Toda vez que tenta construir com IA, abre 4 abas diferentes, pula entre elas sem saber por quê, queima crédito em iteração desnecessária, e no fim do dia não publicou nada. O problema não é você. É falta de método.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <div class="problem-title">Ferramenta demais, plano de menos</div>
+        <div class="problem-text">Claude, GPT, Gemini, Lovable, Cursor... Você testa tudo, não domina nenhum. Sem método, cada ferramenta nova é mais distração, não mais produtividade.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <div class="problem-title">Crédito queimando sem resultado</div>
+        <div class="problem-text">Você paga Lovable, itera, itera, itera... E no dia 7 percebe que gastou USD 80 em edições e nem publicou o projeto. Iteração dentro do Lovable é a armadilha mais cara do mercado hoje.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <div class="problem-title">Trava em configuração técnica</div>
+        <div class="problem-text">Banco de dados. DNS. Webhook. OAuth. Deploy. São as 5 paredes onde 90% dos iniciantes desistem e viram "vou estudar programação de verdade primeiro" — e abandonam de vez.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION / COMO FUNCIONA -->
+<section class="section" id="como-funciona">
+  <div class="wrap">
+    <div class="section-tag">O método</div>
+    <h2>Você não toca instrumento.<br><em>Você rege a orquestra.</em></h2>
+    <p class="section-lead">
+      A ideia central do método: você não vira programador. Você vira <strong>maestro</strong>. Sabe qual ferramenta de IA chamar em cada momento, com qual prompt, com qual critério de validação. Os instrumentos são 5. O maestro é você.
+    </p>
+
+    <div class="method-intro">
+      <div class="method-eyebrow">As 5 ferramentas · 5 papéis</div>
+      <div class="method-headline">Cada uma tem força específica. O método não é usar todas — é saber <em>quando</em> usar cada uma.</div>
+    </div>
+
+    <div class="tools-row">
+      <div class="tool-cell" data-t="claude">
+        <div class="tool-dot"></div>
+        <div class="tool-nm">Claude</div>
+        <div class="tool-role">Arquiteto</div>
+        <div class="tool-dsc">Planeja, escreve PRD, desenha schema, audita código.</div>
+      </div>
+      <div class="tool-cell" data-t="gemini">
+        <div class="tool-dot"></div>
+        <div class="tool-nm">Gemini</div>
+        <div class="tool-role">Tutor</div>
+        <div class="tool-dsc">Lê print, explica erro, guia passo a passo sem jargão.</div>
+      </div>
+      <div class="tool-cell" data-t="gpt">
+        <div class="tool-dot"></div>
+        <div class="tool-nm">GPT</div>
+        <div class="tool-role">Sparring</div>
+        <div class="tool-dsc">Brainstorm, copy, naming, imagens com DALL-E.</div>
+      </div>
+      <div class="tool-cell" data-t="lovable">
+        <div class="tool-dot"></div>
+        <div class="tool-nm">Lovable</div>
+        <div class="tool-role">Executor</div>
+        <div class="tool-dsc">Scaffold do MVP em minutos. Usar pouco, sair rápido.</div>
+      </div>
+      <div class="tool-cell" data-t="manus">
+        <div class="tool-dot"></div>
+        <div class="tool-nm">Manus</div>
+        <div class="tool-role">Operário</div>
+        <div class="tool-dsc">Delegue tarefas longas. Recebe entregável pronto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRILHA -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-tag">A trilha</div>
+    <h2>30 dias, <em>7 fases</em>,<br>um produto no ar.</h2>
+    <p class="section-lead">
+      Cada fase tem checkpoint concreto. Não avance sem bater o checkpoint. Não pule etapas. O método foi desenhado pra quem nunca fez nada parecido — é obcecado com ordem, porque ordem é o que resolve a paralisia.
+    </p>
+
+    <div class="trail-wrap">
+      <div class="trail-phase">
+        <div class="trail-num">01</div>
+        <div class="trail-info">
+          <div class="trail-name">Idear</div>
+          <div class="trail-goal">Sair de "tenho uma ideia" pra "tenho um problema claro, validado, com persona e ângulo de posicionamento."</div>
+        </div>
+        <div class="trail-days">Dias 1–3</div>
+      </div>
+      <div class="trail-phase">
+        <div class="trail-num">02</div>
+        <div class="trail-info">
+          <div class="trail-name">Especificar</div>
+          <div class="trail-goal">PRD completo, schema Supabase em SQL pronto, lista de tarefas em ordem. Tudo antes de escrever uma linha de código.</div>
+        </div>
+        <div class="trail-days">Dias 4–7</div>
+      </div>
+      <div class="trail-phase">
+        <div class="trail-num">03</div>
+        <div class="trail-info">
+          <div class="trail-name">Construir</div>
+          <div class="trail-goal">Scaffold no Lovable, conexão com GitHub, migração pro Claude Code. Primeiro preview navegável no ar.</div>
+        </div>
+        <div class="trail-days">Dias 8–14</div>
+      </div>
+      <div class="trail-phase">
+        <div class="trail-num">04</div>
+        <div class="trail-info">
+          <div class="trail-name">Integrar</div>
+          <div class="trail-goal">Supabase com auth e RLS, login com Google, Stripe aceitando pagamento em test mode, email transacional funcionando.</div>
+        </div>
+        <div class="trail-days">Dias 15–18</div>
+      </div>
+      <div class="trail-phase">
+        <div class="trail-num">05</div>
+        <div class="trail-info">
+          <div class="trail-name">Polir</div>
+          <div class="trail-goal">Auditoria de código com Claude, correções de segurança, depuração. Zero achados críticos antes de avançar.</div>
+        </div>
+        <div class="trail-days">Dias 19–21</div>
+      </div>
+      <div class="trail-phase">
+        <div class="trail-num">06</div>
+        <div class="trail-info">
+          <div class="trail-name">Publicar</div>
+          <div class="trail-goal">URL própria, SSL ativo, Stripe em live mode, domínio apontado, primeira transação real possível.</div>
+        </div>
+        <div class="trail-days">Dias 22–25</div>
+      </div>
+      <div class="trail-phase">
+        <div class="trail-num">07</div>
+        <div class="trail-info">
+          <div class="trail-name">Vender</div>
+          <div class="trail-goal">Landing publicada, anúncios rodando, sequência de emails agendada. Primeira venda registrada no Stripe live.</div>
+        </div>
+        <div class="trail-days">Dias 26–30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULO DO GATO -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-tag">Os dois pulos do gato</div>
+    <h2>O que <em>paga o curso</em><br>dez vezes em 30 dias.</h2>
+    <p class="section-lead">
+      Dois segredos operacionais que não estão em nenhum tutorial do YouTube, em nenhum pack de prompt do Hotmart, em nenhum curso de no-code brasileiro. São o core comercial do método.
+    </p>
+
+    <div class="pulo-grid">
+      <div class="pulo-card">
+        <div class="pulo-label">Pulo do Gato #1</div>
+        <div class="pulo-title">Gemini como <em>tutor</em> passo a passo</div>
+        <div class="pulo-text">
+          Um único prompt que transforma o Gemini em tutor paciente. Você manda print do painel que travou, ele explica, te guia etapa por etapa. 5 tutoriais aplicados: Supabase, DNS, Stripe, OAuth, Deploy. As 5 paredes que derrubam o iniciante — derrubadas com um prompt.
+        </div>
+        <div class="pulo-num">01</div>
+        <div class="pulo-num-lbl">Destrava o "não sei como fazer"</div>
+      </div>
+      <div class="pulo-card">
+        <div class="pulo-label">Pulo do Gato #2</div>
+        <div class="pulo-title">Lovable começa, <em>Claude Code</em> continua</div>
+        <div class="pulo-text">
+          Use Lovable só pra scaffold inicial (1-3 prompts). Conecte ao GitHub. Edite no Claude Code — 30x mais barato que Lovable por edição. O fluxo economiza 80% dos créditos. Em média, USD 80 vira USD 22 por projeto.
+        </div>
+        <div class="pulo-num">02</div>
+        <div class="pulo-num-lbl">Destrava o "tá caro demais"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section" id="o-que-voce-leva">
+  <div class="wrap">
+    <div class="section-tag">O que você leva</div>
+    <h2>Quatro componentes.<br><em>Zero enrolação.</em></h2>
+    <p class="section-lead">
+      Tudo digital, acesso imediato após o pagamento. Sem curso gravado de 40 horas. Sem lives ao vivo que você nunca assiste. Sem grupo de WhatsApp cheio de barulho. Método prático e direto.
+    </p>
+
+    <div class="delivery-grid">
+      <div class="delivery-card">
+        <div class="delivery-icon">i</div>
+        <div class="delivery-title">Ebook completo</div>
+        <div class="delivery-text">
+          64 páginas em 5 partes. Fundamentos, as 5 ferramentas, o método em ação, os dois pulos do gato, apêndices com glossário e cheat sheets.
+        </div>
+        <div class="delivery-tag">~16.000 palavras · PDF + Markdown</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">◇</div>
+        <div class="delivery-title">Dashboard interativo</div>
+        <div class="delivery-text">
+          Painel web com a trilha dos 30 dias em 7 fases expansíveis, biblioteca de tarefas com prompts prontos, e calculadora de economia Lovable vs. método.
+        </div>
+        <div class="delivery-tag">HTML standalone · Hospedagem inclusa</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">§</div>
+        <div class="delivery-title">8 templates práticos</div>
+        <div class="delivery-text">
+          PRD, schema Supabase, checklist pré-produção (100+ itens), briefings Gemini pros 5 tutoriais, fluxo GitHub+Claude Code, scaffold Lovable, manual do produto, plano semanal.
+        </div>
+        <div class="delivery-tag">Prontos para clonar · Markdown</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">≈</div>
+        <div class="delivery-title">Biblioteca de 100 prompts</div>
+        <div class="delivery-text">
+          Cem prompts testados, categorizados por objetivo e ferramenta. Planejamento, pesquisa, arquitetura, design, desenvolvimento, integração, auditoria, debug, conteúdo, marketing, vendas, ops, skills.
+        </div>
+        <div class="delivery-tag">Notion-ready · MD + JSON</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section" id="pra-quem-e">
+  <div class="wrap">
+    <div class="section-tag">Pra quem é · pra quem não é</div>
+    <h2>Honestidade antes do <em>Pix</em>.</h2>
+    <p class="section-lead">
+      Nem todo produto serve pra todo mundo. Este tem público específico. Se você se reconhece na coluna da esquerda, é pra você. Se está na direita, salve seus R$ 147 pra outra coisa.
+    </p>
+
+    <div class="audience-grid">
+      <div class="audience-col yes">
+        <div class="audience-head">É pra você se</div>
+        <ul class="audience-list">
+          <li>Tem ideia travada há meses e quer publicar algo este mês</li>
+          <li>Já tentou aprender a programar e desistiu (ou está cansado)</li>
+          <li>Usa IA de forma caótica, quer método de verdade</li>
+          <li>Está queimando crédito de Lovable sem ver resultado</li>
+          <li>Freelancer/agência que quer virar dono de produto</li>
+          <li>Profissional de mercado (PM, marketing, ops) que quer virar "o cara da IA" na empresa</li>
+          <li>Aceita começar imperfeito e iterar depois</li>
+        </ul>
+      </div>
+      <div class="audience-col no">
+        <div class="audience-head">Não é pra você se</div>
+        <ul class="audience-list">
+          <li>Quer virar programador de verdade (faça CS50, FreeCodeCamp)</li>
+          <li>Busca milhão no primeiro mês (não prometemos isso)</li>
+          <li>Não está disposto a dedicar 1-2h/dia por 30 dias</li>
+          <li>Quer curso com lives ao vivo e cohort (não tem)</li>
+          <li>Procura atalho mágico ou prompt definitivo que resolve tudo</li>
+          <li>Já lançou 3+ SaaS de sucesso (você não é o público)</li>
+          <li>Quer construir algo que exige app mobile nativo de dia 1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="narrow">
+    <div class="section-tag">Perguntas frequentes</div>
+    <h2>Dúvidas que vieram <em>antes</em> de você.</h2>
+    <p class="section-lead">
+      Respostas diretas pra objeções reais. Se a sua dúvida não está aqui, manda no email de suporte — respondo pessoalmente em 48h úteis.
+    </p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Eu não sei programar nadinha. Vou conseguir mesmo?</div>
+        <div class="faq-a">
+          Sim. O método foi desenhado pra iniciante absoluto. Os capítulos 11 e 14 do ebook cobrem o "modo tutor" do Gemini e o Claude Code pra não-devs. A ideia central é que você não programa — você conversa com a IA que programa. Tem 6 comandos de terminal pra aprender ao longo dos 30 dias e é isso.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quanto custa além dos R$ 147 desta oferta?</div>
+        <div class="faq-a">
+          Você vai precisar de assinaturas das ferramentas de IA: Claude Pro (USD 20/mês), ChatGPT Plus (USD 20/mês) opcional, Lovable plano pago (varia), Manus (opcional). Custo total mensal esperado: USD 40–80. Infraestrutura (Supabase + Vercel) é gratuita no começo. Você pode começar só com Claude e ir adicionando conforme a trilha.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Em quanto tempo recebo o material após pagar?</div>
+        <div class="faq-a">
+          Acesso imediato. Após confirmação do pagamento (Pix aprova em segundos, cartão em até 1 minuto), você recebe um email com os links pro ebook em PDF, Dashboard interativo online, pasta de templates, e biblioteca de prompts. Tudo acessível em menos de 2 minutos.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Tem garantia?</div>
+        <div class="faq-a">
+          Sim. 7 dias de garantia incondicional. Dentro de 7 dias após a compra, se você achar que o produto não é pra você, mando o estorno sem perguntas. Reembolso 100% pelo mesmo meio de pagamento. Risco é meu, não seu.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Esse método funciona só pra SaaS?</div>
+        <div class="faq-a">
+          O projeto-exemplo da trilha é SaaS com assinatura Stripe, porque é o caso mais completo. Mas o método se adapta pra: landing de captura, ferramenta interna, marketplace simples, aplicativo de serviço. Mobile nativo não está coberto. E-commerce pesado também não — use Shopify pra isso.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O conteúdo vai ficar desatualizado com a IA mudando tanto?</div>
+        <div class="faq-a">
+          Conteúdo atualizado por 12 meses sem custo adicional. Mais importante: 70% do método é sobre PRINCÍPIOS (como orquestrar, quando usar cada ferramenta, como economizar crédito), não sobre features específicas. Esses princípios não desatualizam. Quando Lovable virar outra coisa, o padrão "scaffold fora, edição dentro de editor barato" continua valendo.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso ter alguma ferramenta instalada antes de comprar?</div>
+        <div class="faq-a">
+          Não. Você pode comprar, ler o ebook, navegar o Dashboard — e só depois decidir quais ferramentas assinar. O Manual do Produto (Template 07) lista todas as contas que precisa criar e quando criar cada uma. O método é desenhado pra você ir assinando conforme avança na trilha.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Tem suporte? Comunidade?</div>
+        <div class="faq-a">
+          Suporte por email com resposta em até 48h úteis (dúvidas específicas sobre o método, não sobre o seu código). Comunidade no Discord opcional e gratuita pros alunos. Sem cobrança de mensalidade depois da compra.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Por que R$ 147 e não R$ 497 ou R$ 1.997?</div>
+        <div class="faq-a">
+          Porque é o preço honesto pelo que entregamos: um produto digital sem aula gravada, sem cohort ao vivo, sem mentoria 1:1. A entrega é: ebook + dashboard + templates + prompts. Produto de valor alto, preço baixo, escala grande. Queremos que cem pessoas apliquem em vez de dez.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Vão ter novas versões?</div>
+        <div class="faq-a">
+          Sim. A v1.0 é o que está à venda agora. Atualizações menores (correções, novos prompts, ajustes) acontecem e você recebe automaticamente nos próximos 12 meses. Versões maiores (v2.0) serão avaliadas conforme mercado e tecnologia evoluírem — quem comprou a v1.0 terá desconto significativo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="section" id="oferta">
+  <div class="narrow">
+    <div class="section-tag">A oferta</div>
+    <h2>Começa <em>agora.</em><br>Publica em 30 dias.</h2>
+    <p class="section-lead">
+      Pagamento único, sem mensalidade. Acesso vitalício. Atualizações por 12 meses. Garantia de 7 dias. Se em 30 dias você não tiver um produto no ar, o problema não foi o método.
+    </p>
+
+    <div class="offer-box">
+      <div class="offer-badge">Kit Completo</div>
+      <div class="offer-title">Do Zero ao SaaS — v1.0</div>
+      <div class="offer-sub">Tudo que você precisa pra sair da ideia e chegar no ar</div>
+
+      <ul class="offer-includes">
+        <li>Ebook completo — 64 páginas, 5 partes, 16 capítulos</li>
+        <li>Dashboard interativo com a Trilha dos 30 dias</li>
+        <li>8 templates práticos em Markdown (PRD, schema, checklist, tutoriais)</li>
+        <li>Biblioteca de 100 prompts categorizados (Notion-ready + JSON)</li>
+        <li>Calculadora de economia Lovable vs. método</li>
+        <li>Atualizações por 12 meses</li>
+        <li>Acesso à comunidade Discord</li>
+        <li>Suporte por email (resposta em 48h)</li>
+      </ul>
+
+      <div class="price-row">
+        <span class="price-old">R$ 297</span>
+        <span class="price-new">R$ 147</span>
+      </div>
+      <div class="price-pix">
+        Pix à vista ou cartão em até 12x — <strong>R$ 14,20/mês</strong>
+      </div>
+
+      <a href="[LINK_CHECKOUT_KIWIFY]" class="btn-primary" style="font-size: 18px; padding: 20px 44px;">Quero começar agora</a>
+
+      <div class="guarantee">Garantia incondicional de 7 dias</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="narrow">
+    <h2>Dia 1 começa <em>quando você decide</em>.</h2>
+    <p class="final-cta-sub">
+      Em 30 dias, você pode estar no mesmo lugar onde está agora — com uma ideia parada, um cartão queimado em ferramenta de IA, e a sensação de que falta alguma coisa. Ou pode estar com uma URL pública no ar, seu primeiro cliente pagante e um método replicável pro resto da sua vida de builder.
+    </p>
+    <a href="#oferta" class="btn-primary" style="font-size: 18px; padding: 20px 44px;">Aceitar o desafio por R$ 147</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>DO ZERO AO SAAS · © 2026 · PT-BR</div>
+    <div class="foot-links">
+      <a href="#faq">FAQ</a>
+      <a href="/termos.html">Termos</a>
+      <a href="/privacidade.html">Privacidade</a>
+      <a href="mailto:suporte@seudominio.com.br">Suporte</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  // Smooth animations on scroll (simples, sem lib)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.problem-card, .tool-cell, .delivery-card, .pulo-card, .trail-phase').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
