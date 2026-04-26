@@ -832,17 +832,28 @@
     <p class="hero-sub">
       Pare de queimar <strong>R$300/mês em Lovable</strong> que trava e estoura crédito. Você não precisa da ferramenta cara — precisa do <strong>método</strong> que orquestra Claude + Cursor + Gemini (quase de graça) pra construir SaaS de verdade.
     </p>
-    <!-- LEAD CAPTURE pré-lançamento (CTA principal) -->
-    <form id="leadForm" class="lead-form" onsubmit="return submitLead(event)">
-      <input type="email" id="leadEmail" name="email" placeholder="seu@email.com" required>
-      <button type="submit" class="btn-primary" id="leadBtn">Quero o Pulo do Gato grátis →</button>
-      <div class="lead-msg" id="leadMsg"></div>
-    </form>
-    <div class="hero-microcopy">
-      <span>Avise-me no lançamento</span>
-      <span>+ 1 capítulo grátis agora</span>
-      <span>Sem spam</span>
+    <!-- CTA principal: COMPRA -->
+    <div class="hero-ctas">
+      <a href="https://pay.kiwify.com.br/bpaQYI2" class="btn-primary" target="_blank" rel="noopener">Comprar por R$ 147 — Pix ou 12x</a>
+      <a href="#como-funciona" class="btn-secondary">Como funciona</a>
     </div>
+    <div class="hero-microcopy">
+      <span>Acesso vitalício</span>
+      <span>Chat IA 24/7 incluído</span>
+      <span>Garantia de 7 dias</span>
+    </div>
+
+    <!-- Fallback: ainda não decidiu? Pega o capítulo grátis -->
+    <details id="leadFallback" style="margin-top: 24px; max-width: 540px;">
+      <summary style="cursor: pointer; font-size: 13px; color: var(--ink-mute, #8A8577); text-decoration: underline; font-family: 'JetBrains Mono', monospace;">
+        Ainda não decidiu? Pega 1 capítulo grátis primeiro →
+      </summary>
+      <form id="leadForm" class="lead-form" onsubmit="return submitLead(event)">
+        <input type="email" id="leadEmail" name="email" placeholder="seu@email.com" required>
+        <button type="submit" class="btn-secondary" id="leadBtn" style="cursor: pointer;">Receber capítulo grátis</button>
+        <div class="lead-msg" id="leadMsg"></div>
+      </form>
+    </details>
 
     <style>
       .lead-form { display: flex; gap: 10px; flex-wrap: wrap; max-width: 540px; margin: 28px 0 16px; }
@@ -1287,7 +1298,7 @@
         Pix à vista ou cartão em até 12x — <strong>R$ 14,20/mês</strong>
       </div>
 
-      <a href="https://pay.kiwify.com.br/bpadvLg" class="btn-primary" style="font-size: 18px; padding: 20px 44px;">Quero começar agora</a>
+      <a href="https://pay.kiwify.com.br/bpaQYI2" class="btn-primary" style="font-size: 18px; padding: 20px 44px;">Quero começar agora</a>
 
       <div class="guarantee">Garantia incondicional de 7 dias</div>
     </div>
