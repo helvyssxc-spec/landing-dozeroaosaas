@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /og-render.html
-Disallow: /termos.html
-Disallow: /privacidade.html
 
 Sitemap: https://dozeroaosaas.com.br/sitemap.xml
