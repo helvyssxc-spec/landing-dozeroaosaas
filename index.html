@@ -75,6 +75,80 @@ fbq('track', 'PageView');
 }
 </script>
 
+<!-- Schema.org FAQPage (rich snippets — perguntas aparecem direto no Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Isso é só mais um curso de vibe coding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A maioria dos cursos de vibe coding hoje é manda um prompt no Lovable e reza. Funciona pra protótipo de fim de semana, quebra na hora de ir pra produção real. Aqui é diferente: vibe coding com método. 5 IAs orquestradas com papel claro (Claude planeja, Gemini ensina, Lovable scaffolda, Cursor edita, Manus executa em batch), 100+ prompts testados, 8 templates pra PRD/schema/checklist, dashboard de 30 dias com checkpoints concretos, auditoria de código antes de cada deploy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Eu não sei programar nadinha. Vou conseguir mesmo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O método foi desenhado pra iniciante absoluto. Os capítulos 11 e 14 do ebook cobrem o modo tutor do Gemini e o Claude Code pra não-devs. A ideia central é que você não programa — você conversa com a IA que programa. Tem 6 comandos de terminal pra aprender ao longo dos 30 dias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto custa além dos R$ 147 desta oferta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Você vai precisar de assinaturas das ferramentas de IA: Claude Pro (USD 20/mês), ChatGPT Plus (USD 20/mês) opcional, Lovable plano pago (varia), Manus (opcional). Custo total mensal esperado: USD 40 a 80. Infraestrutura (Supabase + Vercel) é gratuita no começo. Você pode começar só com Claude e ir adicionando conforme a trilha."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Em quanto tempo recebo o material após pagar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acesso imediato. Após confirmação do pagamento (Pix aprova em segundos, cartão em até 1 minuto), você recebe um email com os links pro ebook em PDF, Dashboard interativo online, pasta de templates, e biblioteca de prompts. Tudo acessível em menos de 2 minutos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tem garantia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. 7 dias de garantia incondicional. Dentro de 7 dias após a compra, se você achar que o produto não é pra você, mando o estorno sem perguntas. Reembolso 100% pelo mesmo meio de pagamento. Risco é meu, não seu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Esse método funciona só pra SaaS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O projeto-exemplo da trilha é SaaS com assinatura Stripe, porque é o caso mais completo. Mas o método se adapta pra: landing de captura, ferramenta interna, marketplace simples, aplicativo de serviço. Mobile nativo não está coberto. E-commerce pesado também não — use Shopify pra isso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O conteúdo vai ficar desatualizado com a IA mudando tanto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conteúdo atualizado por 12 meses sem custo adicional. Mais importante: 70% do método é sobre princípios (como orquestrar, quando usar cada ferramenta, como economizar crédito), não sobre features específicas. Esses princípios não desatualizam. Quando Lovable virar outra coisa, o padrão scaffold fora, edição dentro de editor barato continua valendo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tem suporte? Comunidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suporte por email com resposta em até 48h úteis (dúvidas específicas sobre o método, não sobre o seu código). Chat IA 24/7 incluído pra dúvidas instantâneas sobre o conteúdo. Comunidade no Discord opcional e gratuita pros alunos. Sem cobrança de mensalidade depois da compra."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%23E8B84A'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='72' font-weight='600' text-anchor='middle' fill='%230B0B0F' font-style='italic'%3EO%3C/text%3E%3C/svg%3E">
 
