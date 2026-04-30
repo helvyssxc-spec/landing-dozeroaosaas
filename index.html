@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Do Zero ao SaaS — Do zero ao primeiro SaaS faturando em 30 dias</title>
-<meta name="description" content="Método prático para construir, publicar e vender seu primeiro SaaS em 30 dias orquestrando Claude + Cursor + Gemini. Sem saber programar. Sem queimar R$300/mês em Lovable.">
-<meta name="keywords" content="saas, sem programar, claude code, cursor ai, gemini, lovable alternativa, infoproduto, criar saas, indie hacker, micro saas, IA para negócios">
+<title>Vibe Coding com Método — Do Zero ao SaaS faturando em 30 dias</title>
+<meta name="description" content="Vibe coding feito direito: método sério com 5 IAs orquestradas (Claude, Gemini, GPT, Lovable, Manus), 100+ prompts e dashboard de 30 dias. Sem saber programar e sem queimar R$300/mês em Lovable.">
+<meta name="keywords" content="vibe coding, vibe coding método, saas sem programar, claude code, cursor ai, gemini, lovable alternativa, infoproduto, micro saas, indie hacker, IA para negócios">
 <meta name="author" content="Do Zero ao SaaS">
 <meta name="theme-color" content="#0B0B0F">
 <link rel="canonical" href="https://dozeroaosaas.com.br/">
@@ -14,20 +14,20 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dozeroaosaas.com.br/">
 <meta property="og:site_name" content="Do Zero ao SaaS">
-<meta property="og:title" content="Do Zero ao SaaS — Sem queimar R$300/mês em Lovable">
-<meta property="og:description" content="Método prático pra construir, publicar e vender seu primeiro SaaS em 30 dias. Com Claude + Cursor + Gemini orquestrados (quase de graça). Sem saber programar.">
+<meta property="og:title" content="Vibe Coding com Método — Do Zero ao SaaS em 30 dias">
+<meta property="og:description" content="Vibe coding feito direito: 5 IAs orquestradas (Claude, Gemini, GPT, Lovable, Manus), 100+ prompts, dashboard de 30 dias. Sem programar. Sem queimar R$300/mês.">
 <meta property="og:image" content="https://dozeroaosaas.com.br/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Do Zero ao SaaS — método pra construir SaaS sem programar e sem gastar com Lovable">
+<meta property="og:image:alt" content="Vibe Coding com Método — método sério pra construir SaaS com 5 IAs orquestradas">
 <meta property="og:locale" content="pt_BR">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Do Zero ao SaaS — Sem queimar R$300/mês em Lovable">
-<meta name="twitter:description" content="Método pra construir SaaS em 30 dias com Claude + Cursor + Gemini. Sem programar. R$ 147 — acesso vitalício + chat IA 24/7.">
+<meta name="twitter:title" content="Vibe Coding com Método — SaaS em 30 dias">
+<meta name="twitter:description" content="Vibe coding feito direito: 5 IAs orquestradas, 100+ prompts, chat IA 24/7. R$ 147 — acesso vitalício.">
 <meta name="twitter:image" content="https://dozeroaosaas.com.br/og-image.png">
-<meta name="twitter:image:alt" content="Do Zero ao SaaS">
+<meta name="twitter:image:alt" content="Vibe Coding com Método">
 
 <!-- Robots -->
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -58,8 +58,8 @@ fbq('track', 'PageView');
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Do Zero ao SaaS",
-  "description": "Método prático para construir, publicar e vender seu primeiro SaaS em 30 dias orquestrando Claude + Cursor + Gemini. Sem saber programar.",
+  "name": "Do Zero ao SaaS — Vibe Coding com Método",
+  "description": "Método sério de vibe coding: construa seu primeiro SaaS em 30 dias orquestrando Claude, Gemini, GPT, Lovable e Manus. 100+ prompts, 8 templates, dashboard de 30 dias e auditoria de código. Sem saber programar.",
   "brand": { "@type": "Brand", "name": "Do Zero ao SaaS" },
   "image": "https://dozeroaosaas.com.br/og-image.png",
   "url": "https://dozeroaosaas.com.br/",
@@ -185,6 +185,36 @@ fbq('track', 'PageView');
     content: '';
     width: 32px; height: 1px;
     background: var(--accent);
+  }
+
+  .vibe-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent) 0%, #F2C560 100%);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    padding: 8px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 1px rgba(232, 184, 74, 0.3), 0 8px 24px rgba(232, 184, 74, 0.15);
+    animation: vibePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes vibePulse {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(232, 184, 74, 0.3), 0 8px 24px rgba(232, 184, 74, 0.15); }
+    50% { box-shadow: 0 0 0 1px rgba(232, 184, 74, 0.5), 0 8px 32px rgba(232, 184, 74, 0.35); }
+  }
+
+  .vibe-line {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent) 0%, #F2C560 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
+    font-weight: 400;
   }
 
   h1 {
@@ -885,14 +915,15 @@ fbq('track', 'PageView');
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-tag">Do Zero ao SaaS · 30 dias · Sem pagar Lovable</div>
+    <span class="vibe-badge">⚡ VIBE CODING COM MÉTODO</span>
+    <div class="hero-tag">30 dias · 5 IAs orquestradas · Sem programar</div>
     <h1 class="fade-in">
       Do <em>zero</em> ao seu primeiro<br>
       <em>SaaS faturando</em> em 30 dias.<br>
-      <s>Sem saber programar.</s>
+      <strong class="vibe-line">Vibe coding feito direito.</strong>
     </h1>
     <p class="hero-sub">
-      Pare de queimar <strong>R$300/mês em Lovable</strong> que trava e estoura crédito. Você não precisa da ferramenta cara — precisa do <strong>método</strong> que orquestra Claude + Cursor + Gemini (quase de graça) pra construir SaaS de verdade.
+      Sem queimar <strong>R$300/mês em Lovable</strong> que trava. Sem cair em curso raso de "manda no Lovable e reza". <strong>Método sério</strong> com <strong>Claude, Gemini, GPT, Lovable e Manus</strong> orquestrados — 100+ prompts, 8 templates, dashboard de 30 dias e auditoria de código.
     </p>
     <!-- CTA principal: COMPRA -->
     <div class="hero-ctas">
@@ -1022,7 +1053,7 @@ fbq('track', 'PageView');
 <section class="section" id="como-funciona">
   <div class="wrap">
     <div class="section-tag">O método</div>
-    <h2>Você não toca instrumento.<br><em>Você rege a orquestra.</em></h2>
+    <h2>Vibe coding feito direito:<br>você não programa, <em>você orquestra.</em></h2>
     <p class="section-lead">
       A ideia central do método: você não vira programador. Você vira <strong>maestro</strong>. Sabe qual ferramenta de IA chamar em cada momento, com qual prompt, com qual critério de validação. Os instrumentos são 5. O maestro é você.
     </p>
@@ -1263,6 +1294,12 @@ fbq('track', 'PageView');
     </p>
 
     <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Isso é só mais um curso de vibe coding?</div>
+        <div class="faq-a">
+          Não. A maioria dos cursos de "vibe coding" hoje é "manda um prompt no Lovable e reza". Funciona pra protótipo de fim de semana, quebra na hora de ir pra produção real. Aqui é diferente: <strong>vibe coding com método</strong>. 5 IAs orquestradas com papel claro (Claude planeja, Gemini ensina, Lovable scaffolda, Cursor edita, Manus executa em batch), 100+ prompts testados, 8 templates pra PRD/schema/checklist, dashboard de 30 dias com checkpoints concretos, auditoria de código antes de cada deploy. É vibe coding feito direito — pra quem quer SaaS no ar de verdade, não só "demo bonita pro Twitter".
+        </div>
+      </div>
       <div class="faq-item">
         <div class="faq-q">Eu não sei programar nadinha. Vou conseguir mesmo?</div>
         <div class="faq-a">
