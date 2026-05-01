@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Logo · Do Zero ao SaaS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 600px; height: 120px;
+    background: #0B0B0F;
+    color: #F5F1E8;
+    font-family: 'Inter Tight', sans-serif;
+    background-image:
+      radial-gradient(circle at 8% 30%, rgba(232, 184, 74, 0.20) 0%, transparent 55%),
+      radial-gradient(circle at 95% 80%, rgba(74, 144, 226, 0.10) 0%, transparent 45%);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 18px;
+  }
+  .logo {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, #E8B84A 0%, #F2C560 100%);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #0B0B0F;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 44px;
+    font-style: italic;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(232, 184, 74, 0.3);
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #F5F1E8;
+  }
+  .brand em {
+    font-style: italic;
+    color: #E8B84A;
+    font-weight: 300;
+  }
+  .tagline {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8A8577;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="logo">O</div>
+  <div class="text">
+    <div class="brand">Do Zero ao <em>SaaS</em></div>
+    <div class="tagline">Vibe coding com método</div>
+  </div>
+</body>
+</html>
