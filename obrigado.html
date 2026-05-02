@@ -11,14 +11,19 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-11469093199');
-  // TODO: adicionar conversion event quando criar Conversão no Google Ads.
-  // Formato (substituir CONVERSION_LABEL pela label gerada no painel Ads):
-  // gtag('event', 'conversion', {
-  //   'send_to': 'AW-11469093199/CONVERSION_LABEL',
-  //   'value': 147.0,
-  //   'currency': 'BRL',
-  //   'transaction_id': ''
-  // });
+
+  // Conversion event — dispara quando Kiwify redireciona pra esta página após pagamento confirmado.
+  // transaction_id evita contagem dupla em refresh (Kiwify passa order_id/pedido na query string).
+  (function() {
+    var qs = new URLSearchParams(window.location.search);
+    var txId = qs.get('order_id') || qs.get('pedido') || qs.get('transaction_id') || '';
+    gtag('event', 'conversion', {
+      'send_to': 'AW-11469093199/ALbgCNuvl6YcEM_y8dwq',
+      'value': 147.0,
+      'currency': 'BRL',
+      'transaction_id': txId
+    });
+  })();
 </script>
 
 <title>Obrigado! — Seu kit Do Zero ao SaaS</title>
