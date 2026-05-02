@@ -4,26 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Ads (gtag.js) -->
+<!-- Google Ads (gtag.js) — apenas tag base pra retargeting/page view.
+     Conversion event de Compra é disparado server-side pelo Kiwify (Configurações > Pixels).
+     Não duplicar evento aqui pra não inflar conversões. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11469093199"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-11469093199');
-
-  // Conversion event — dispara quando Kiwify redireciona pra esta página após pagamento confirmado.
-  // transaction_id evita contagem dupla em refresh (Kiwify passa order_id/pedido na query string).
-  (function() {
-    var qs = new URLSearchParams(window.location.search);
-    var txId = qs.get('order_id') || qs.get('pedido') || qs.get('transaction_id') || '';
-    gtag('event', 'conversion', {
-      'send_to': 'AW-11469093199/ALbgCNuvl6YcEM_y8dwq',
-      'value': 147.0,
-      'currency': 'BRL',
-      'transaction_id': txId
-    });
-  })();
 </script>
 
 <title>Obrigado! — Seu kit Do Zero ao SaaS</title>
